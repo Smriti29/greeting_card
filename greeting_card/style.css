@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+@keyframes heading {
+    0% { opacity: 0 }
+    25% { opacity: 0.7;}
+    50% { opacity: 0.8 }
+    100% { opacity: 1.0 }
+} 
+@keyframes message {
+    0% { opacity: 0 }
+    25% { opacity: 0.9;}
+    100% { opacity: 1.0 }
+} 
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Dancing Script', cursive;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fbe9e7;
+}
+.card {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    background: #fff;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    box-shadow: 10px 20px 40px rgba(0,0,0,0.30);
+    transition: 1s;
+}
+.card:hover {
+    transform: translateX(50%)
+}
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .details .content {
+    display: flex;
+    width:100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid hotpink;
+    box-shadow: 5px 5px 5px grey;
+}
+.card .details .content h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.5rem;
+    color: hotpink;
+    padding: 5px;
+    margin: 10% 0;
+    animation: heading 20s linear 1;
+}
+.card .details .content div {
+    width: 100%;
+}
+.card .details .content div::before {
+    background-color: rgba(0,0,0,0.3);
+}
+.card .details .content p {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    padding: 5%;
+    text-align: center;
+    line-height: 2.5rem;
+    font-size:x-large;
+    color: #006fcf;
+    animation: message 20s linear 1;
+}
+.card .imgBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    background: #000;
+    transition: 1s;
+    box-shadow: 10px 20px 40px rgba(0,0,0,0.30);
+}
+.card:hover .imgBox {
+    transform: rotateY(-180deg)
+}
+
+.card .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+.card .imgBox img:nth-child(2) {
+    transform: rotateY(-180deg)
+}
